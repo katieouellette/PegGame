@@ -12,46 +12,35 @@ import java.util.*;
 
 public class Game {
 
-	//all possible moves
-	private final static int[][] MOVES = new int[][]
- 	{ 
- 		new int[] { 0, 1, 3 },
- 		new int[] { 0, 2, 5 },
- 		new int[] { 1, 3, 6 },
- 		new int[] { 1, 4, 8 },
- 		new int[] { 2, 4, 7 },
- 		new int[] { 2, 5, 9 },
- 		new int[] { 3, 4, 5 },
- 		new int[] { 3, 6, 10 },
- 		new int[] { 3, 7, 12 },
- 		new int[] { 4, 7, 11 },
- 		new int[] { 4, 8, 13 },
- 		new int[] { 5, 8, 12 },
-		new int[] { 5, 9, 14 },
- 		new int[] { 6, 7, 8 },
- 		new int[] { 7, 8, 9 },
- 		new int[] { 10, 11, 12 },
- 		new int[] { 11, 12, 13 },
- 		new int[] { 12, 13, 14 }
- 	};
-    // list of seen boards - this is used to prevent rechecking of paths
-    private static final HashSet<Long> seenBoards = new HashSet<Long>();
-
-    // list of solution boards in ascending order - filled in once the solution is found
-    private static final ArrayList<Long> solution = new ArrayList<Long>();
-
-    private static final ArrayList<long[]> result = new ArrayList<long[]>();
-
-    //goal board (one marble in center)
+     //all possible moves
+     private final static int[][] MOVES = new int[][]
+     { 
+ 	new int[] { 0, 1, 3 },
+ 	new int[] { 0, 2, 5 },
+ 	new int[] { 1, 3, 6 },
+ 	new int[] { 1, 4, 8 },
+ 	new int[] { 2, 4, 7 },
+ 	new int[] { 2, 5, 9 },
+ 	new int[] { 3, 4, 5 },
+ 	new int[] { 3, 6, 10 },
+ 	new int[] { 3, 7, 12 },
+ 	new int[] { 4, 7, 11 },
+ 	new int[] { 4, 8, 13 },
+ 	new int[] { 5, 8, 12 },
+	new int[] { 5, 9, 14 },
+ 	new int[] { 6, 7, 8 },
+ 	new int[] { 7, 8, 9 },
+ 	new int[] { 10, 11, 12 },
+ 	new int[] { 11, 12, 13 },
+        new int[] { 12, 13, 14 }
+    };
+    
+    private static final HashSet<Long> completed = new HashSet<Long>(); //failed boards
+    private static final ArrayList<Long> solution = new ArrayList<Long>(); //solution board
+    private static final ArrayList<long[]> result = new ArrayList<long[]>(); //final
     private static long SOLUTION = 1048576;
-
-    //initial board (one marble free in center)
     private static long START = 105983;
-
-    //board that contains a ball in every available slot, i.e. SOLUTION | START
     private static final long VALID_BOARD_CELLS = 1154559;  
-
-	//holds all 36 moves that are possible
     private static final long[][] moves = new long[36][];
     
 
