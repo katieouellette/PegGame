@@ -64,7 +64,7 @@ public class Game {
 	{
 		init(start);
         solution.add(START); //use initialized board
-        seenBoards.clear();
+        completed.clear();
         solution.clear();
         result.clear();
             	
@@ -171,9 +171,9 @@ public class Game {
             if ((move[1] & board) == 0L && (move[0] & board) != 0L) //if it works
             {
                 long newBoard = board ^ move[2];  //adjust board
-                if (!seenBoards.contains(newBoard)) //make sure it hasn't been done before
+                if (!completed.contains(newBoard)) //make sure it hasn't been done before
                 {
-                    seenBoards.add(newBoard);
+                    completed.add(newBoard);
                     if (newBoard == START || puzzle(newBoard))  //does it work 
                     {
                         solution.add(board);
